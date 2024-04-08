@@ -15,3 +15,11 @@
   max-width: 20em;
   margin: auto;
 }
+
+.css-3o67hy-MuiPaper-root-MuiCard-root {
+  background-color: #3b438b !important;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  background-color: white;
+}

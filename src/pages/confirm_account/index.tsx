@@ -8,7 +8,7 @@ const SigninSuccess = () => {
         i'm the signin success page, i'll host the success message and send
         users to the order page
       </Typography>
-      <NavLink to={`/order`}>
+      <NavLink to={`/`}>
         <Typography textAlign="center">order</Typography>
       </NavLink>
     </Box>

@@ -2,6 +2,7 @@ import {
   Button,
   Card,
   InputAdornment,
+  Modal,
   TextField,
   Typography,
 } from "@mui/material";
@@ -13,6 +14,7 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import * as yup from "yup";
 import AuthenticationService from "../../services/AuthenticationService";
+import Signin from "../signin";
 
 interface Props {
   setIsAuthenticated: Function;
@@ -66,48 +68,58 @@ const Login = ({ setIsAuthenticated }: Props) => {
   });
 
   return (
-    <Card className="login" elevation={10}>
-      <Typography color="red">{error}</Typography>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          placeholder={t("common.loginPlaceholder")}
-          type="text"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <LoginOutlined />
-              </InputAdornment>
-            ),
-          }}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.login}
-          name="login"
-          error={formik.touched.login && Boolean(formik.errors.login)}
-          helperText={formik.touched.login && formik.errors.login}
-        />
-        <TextField
-          placeholder={t("common.passwordPlaceholder")}
-          type="password"
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <KeyOutlined />
-              </InputAdornment>
-            ),
-          }}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-          name="password"
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.touched.password && formik.errors.password}
-        />
-        <Button variant="contained" type="submit">
-          {t("common.connect")}
-        </Button>
-      </form>
-    </Card>
+    <>
+      <Card className="login" elevation={10}>
+        <Typography color="red">{error}</Typography>
+        <form onSubmit={formik.handleSubmit}>
+          <TextField
+            placeholder={t("common.loginPlaceholder")}
+            type="text"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LoginOutlined />
+                </InputAdornment>
+              ),
+            }}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.login}
+            name="login"
+            error={formik.touched.login && Boolean(formik.errors.login)}
+            helperText={formik.touched.login && formik.errors.login}
+          />
+          <TextField
+            placeholder={t("common.passwordPlaceholder")}
+            type="password"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <KeyOutlined />
+                </InputAdornment>
+              ),
+            }}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.password}
+            name="password"
+            error={formik.touched.password && Boolean(formik.errors.password)}
+            helperText={formik.touched.password && formik.errors.password}
+          />
+          <Button variant="contained" type="submit">
+            {t("common.connect")}
+          </Button>
+        </form>
+      </Card>
+      {/*
+      <Modal
+        open={open}
+        onClose={handleClose}
+      >
+        <Signin account={account} />
+      </Modal>
+      */}
+    </>
   );
 };
 

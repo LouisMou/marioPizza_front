@@ -8,7 +8,7 @@ const OrderConfirmation = () => {
         i'm the order confirmation page, i'll tell the user their order went
         well and send back to the order page
       </Typography>
-      <NavLink to={`/order`}>
+      <NavLink to={`/`}>
         <Typography textAlign="center">order</Typography>
       </NavLink>
     </Box>
