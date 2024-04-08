@@ -25,7 +25,6 @@ function App() {
         {isAuthenticated ? (
           <Routes>
             <Route path="/" element={<Order />} />
-            <Route path="/signin" element={<Signin />} />
             <Route path="/success" element={<SigninSuccess />} />
             <Route path="/confirmation" element={<OrderConfirmation />} />
           </Routes>
