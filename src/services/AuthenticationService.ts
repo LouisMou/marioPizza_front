@@ -1,5 +1,6 @@
 import Login from "../models/security/LoginRequest";
 import LoginResponse from "../models/security/LoginResponse";
+import Signin from "../models/security/SignupRequest";
 
 export default class AuthenticationService {
   static async call(login: Login): Promise<LoginResponse | undefined> {
@@ -24,6 +25,19 @@ export default class AuthenticationService {
       }
     });
     return new Promise((resolve) => resolve(this.isAuthenticated()));
+  }
+
+  static async signup(signup: Signin): Promise<Signin> {
+    return fetch(`http://localhost:8080/auth/signup`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(signup),
+    })
+      .then((signin) => signin.json())
+      .catch((error) => {
+        console.error(error);
+        throw error;
+      });
   }
 
   static logout(): void {

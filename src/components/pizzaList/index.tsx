@@ -8,9 +8,6 @@ interface Props {
 }
 
 const PizzaList = ({ pizzas }: Props) => {
-  // zone pour faire des trucs
-
-  // Ici on construit l'interface
   return (
     <Box className="pizzaList">
       <Box

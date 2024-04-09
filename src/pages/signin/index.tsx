@@ -13,12 +13,14 @@ import * as yup from "yup";
 import AuthenticationService from "../../services/AuthenticationService";
 import { useState } from "react";
 import { KeyOutlined, LoginOutlined } from "@mui/icons-material";
+import User from "../../models/security/User";
 
 interface Props {
   setIsAuthenticated: Function;
+  user?: User;
 }
 
-const Signin = ({ setIsAuthenticated }: Props) => {
+const Signin = ({ user, setIsAuthenticated }: Props) => {
   const { t } = useTranslation();
   const [error, setError] = useState<string>("");
 
@@ -90,15 +92,16 @@ const Signin = ({ setIsAuthenticated }: Props) => {
     },
     validationSchema: schema,
     onSubmit: (values) => {
-      AuthenticationService.login(values.login, values.password)
-        .then((response) => {
-          setIsAuthenticated(response);
-          setError(response ? "" : t("common.loginError"));
-        })
-        .catch((reason) => {
-          console.error(reason);
-          setError(t("common.technicalError"));
-        });
+      let user: User = {
+        id: 0,
+        role: "",
+        firstname: values.firstname,
+        lastname: values.lastname,
+        password: values.passwordConfirmation,
+        address: values.address,
+        username: values.login,
+      };
+      AuthenticationService.signup(user);
     },
   });
 
