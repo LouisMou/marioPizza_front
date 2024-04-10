@@ -94,7 +94,6 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
     onSubmit: (values) => {
       let user: User = {
         id: 0,
-        role: "",
         firstname: values.firstname,
         lastname: values.lastname,
         password: values.passwordConfirmation,

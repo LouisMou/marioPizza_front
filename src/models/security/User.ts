@@ -3,7 +3,6 @@ export default class User {
   username: string;
   firstname: string;
   lastname: string;
-  role: string;
   address: string;
   password: string;
   constructor(
@@ -11,7 +10,6 @@ export default class User {
     username: string,
     firstname: string,
     lastname: string,
-    role: string,
     address: string,
     password: string
   ) {
@@ -19,7 +17,6 @@ export default class User {
     this.username = username;
     this.firstname = firstname;
     this.lastname = lastname;
-    this.role = role;
     this.address = address;
     this.password = password;
   }
