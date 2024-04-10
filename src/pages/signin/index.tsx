@@ -91,16 +91,26 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
       login: "",
     },
     validationSchema: schema,
-    onSubmit: (values) => {
-      let user: User = {
-        id: 0,
-        firstname: values.firstname,
-        lastname: values.lastname,
-        password: values.passwordConfirmation,
-        address: values.address,
-        username: values.login,
-      };
-      AuthenticationService.signup(user);
+    onSubmit: async (values) => {
+      try {
+        let user: User = {
+          id: 0,
+          firstname: values.firstname,
+          lastname: values.lastname,
+          password: values.passwordConfirmation,
+          address: values.address,
+          username: values.login,
+        };
+        await AuthenticationService.signup(user);
+
+        await AuthenticationService.login(
+          values.login,
+          values.passwordConfirmation
+        );
+        window.location.href = "/success";
+      } catch (error) {
+        console.error("Error:", error);
+      }
     },
   });
 
