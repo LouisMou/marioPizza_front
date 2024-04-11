@@ -12,6 +12,7 @@ const PizzaList = ({ pizzas }: Props) => {
     <Box className="pizzaList">
       <Box
         display="flex"
+        flexDirection="column"
         flexWrap="wrap"
         gap="20px"
         justifyContent="space-around"
