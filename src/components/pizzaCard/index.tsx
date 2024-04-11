@@ -15,7 +15,7 @@ import "./style.css";
 import { useTranslation } from "react-i18next";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-import { styled } from "@mui/system";
+import { Box, styled } from "@mui/system";
 import { blue, grey } from "@mui/material/colors";
 
 interface Props {
@@ -112,34 +112,39 @@ const PizzaCard = ({ pizza }: Props) => {
   return (
     <>
       <Card className="pizzaCard" elevation={10}>
-        <CardHeader title={pizza.name} />
-        <CardMedia component="img" image={pizza.image} alt={pizza.name} />
-        <CardContent>
-          <Typography variant="h3">{pizza.description}</Typography>
-        </CardContent>
-        <Chip label={pizza.price} />
-
-        <NumberInput
-          className="counter"
-          aria-label="Quantity Input"
-          min={0}
-          max={10}
-          slots={{
-            root: StyledInputRoot,
-            input: StyledInput,
-            incrementButton: StyledButton,
-            decrementButton: StyledButton,
-          }}
-          slotProps={{
-            incrementButton: {
-              children: <AddIcon fontSize="small" />,
-              className: "increment",
-            },
-            decrementButton: {
-              children: <RemoveIcon fontSize="small" />,
-            },
-          }}
-        />
+        <Box>
+          <CardMedia component="img" image={pizza.image} alt={pizza.name} />
+        </Box>
+        <Box id="titledesc">
+          <CardHeader title={pizza.name} />
+          <CardContent>
+            <Typography variant="h3">{pizza.description}</Typography>
+          </CardContent>
+        </Box>
+        <Box id="chipnumber">
+          <Chip label={pizza.price} />
+          <NumberInput
+            className="counter"
+            aria-label="Quantity Input"
+            min={0}
+            max={10}
+            slots={{
+              root: StyledInputRoot,
+              input: StyledInput,
+              incrementButton: StyledButton,
+              decrementButton: StyledButton,
+            }}
+            slotProps={{
+              incrementButton: {
+                children: <AddIcon fontSize="small" />,
+                className: "increment",
+              },
+              decrementButton: {
+                children: <RemoveIcon fontSize="small" />,
+              },
+            }}
+          />
+        </Box>
       </Card>
     </>
   );
