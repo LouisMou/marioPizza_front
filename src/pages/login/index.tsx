@@ -9,11 +9,7 @@ import {
 
 import "./style.css";
 import { useFormik } from "formik";
-import {
-  HandymanOutlined,
-  KeyOutlined,
-  LoginOutlined,
-} from "@mui/icons-material";
+import { KeyOutlined, LoginOutlined } from "@mui/icons-material";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import * as yup from "yup";
@@ -30,7 +26,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
   const handleOpen = () => {
     setOpen(true);
   };
-  const handleClose = () => {
+  const handleCloseSignin = () => {
     setOpen(false);
   };
 
@@ -125,8 +121,11 @@ const Login = ({ setIsAuthenticated }: Props) => {
           </Button>
         </form>
       </Card>
-      <Modal open={open} onClose={handleClose}>
-        <Signin setIsAuthenticated={setIsAuthenticated} />
+      <Modal open={open} onClose={handleCloseSignin}>
+        <Signin
+          setIsAuthenticated={setIsAuthenticated}
+          handleCloseSignin={handleCloseSignin}
+        />
       </Modal>
     </>
   );

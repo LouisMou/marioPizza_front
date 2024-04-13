@@ -1,4 +1,4 @@
-import { Box, Slide } from "@mui/material";
+import { Box } from "@mui/material";
 import Pizza from "../../models/pizza";
 import PizzaCard from "../pizzaCard";
 import "./style.css";
@@ -19,16 +19,9 @@ const PizzaList = ({ pizzas }: Props) => {
         id="list"
       >
         {pizzas?.map((pizza: Pizza, index: number) => (
-          <Slide
-            in={true}
-            timeout={(index + 1) * 20}
-            style={{ transformOrigin: "0 0 0" }}
-            key={"zoom" + pizza.id}
-          >
-            <article>
-              <PizzaCard pizza={pizza} />
-            </article>
-          </Slide>
+          <article>
+            <PizzaCard pizza={pizza} />
+          </article>
         ))}
       </Box>
     </Box>

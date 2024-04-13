@@ -1,10 +1,13 @@
 import { Box, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <Box>
       <Typography variant="body1" sx={{ padding: "5px" }}>
-        &copy; 2024 Mario's Pizza
+        &copy; {t("common.footer")}
       </Typography>
     </Box>
   );

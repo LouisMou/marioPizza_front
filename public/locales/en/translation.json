@@ -1,0 +1,50 @@
+{
+  "common": {
+    "footer": "2024 Mario's Pizza",
+    "header": "Chez Mario",
+    "logo": "logo",
+    "loginPlaceholder": "Phone Number",
+    "passwordPlaceholder": "Password",
+    "loginError": "Can not connect",
+    "technicalError": "Technical error, please try again later.",
+    "connect": "Connect",
+    "firstname": "Firstname",
+    "lastname": "Lastname",
+    "address": "Address",
+    "passwordConfirmation": "Password Confirmation",
+    "create": "Sign Up"
+  },
+  "error": {
+    "required": "The {{field}} is required",
+    "minLen": "at least {{field}} characters",
+    "maxLen": "At most {{field}} characters"
+  },
+  "pizza": {
+    "1": "Margherita",
+    "2": "4 Cheeses",
+    "3": "Campagnarde",
+    "4": "Goat cheese and honey",
+    "5": "Chicken Barbecue",
+    "6": "Hawaiian",
+    "7": "Nordic",
+    "8": "Oriental",
+    "9": "Pepperoni",
+    "10": "Regina",
+    "11": "Texan Barbecue",
+    "12": "Vegetarian"
+  },
+  "description": {
+    "1": "Tomato sauce with oregano and mozzarella",
+    "2": "Tomato sauce with oregano or light crème fraîche, mozzarella, goat's cheese, Emmental and Fourme d'Ambert AOP",
+    "3": "Light crème fraîche, mozzarella, bacon, fresh red onions and fresh mushrooms",
+    "4": "Light crème fraîche, mozzarella, goat cheese, honey",
+    "5": "Barbecue sauce, mozzarella, roast chicken, fresh red onions, fresh mushrooms and fresh green peppers",
+    "6": "Tomato sauce with oregano, mozzarella, ham and pineapple",
+    "7": "Light crème fraîche, mozzarella and Norwegian smoked salmon",
+    "8": "Tomato sauce with oregano, mozzarella, merguez and fresh mushrooms",
+    "9": "Tomato sauce with oregano, mozzarella and pepperoni sausage",
+    "10": "Tomato sauce with oregano, mozzarella, ham and fresh mushrooms",
+    "11": "Barbecue sauce, mozzarella, ham, beef crumbles, bacon, fresh mushrooms and fresh red onions.",
+    "12": "Tomato sauce with oregano, mozzarella, fresh mushrooms, fresh red onions, fresh green peppers, fresh tomatoes and black olives"
+  }
+}

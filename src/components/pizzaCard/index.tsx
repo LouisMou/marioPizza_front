@@ -113,12 +113,16 @@ const PizzaCard = ({ pizza }: Props) => {
     <>
       <Card className="pizzaCard" elevation={10}>
         <Box>
-          <CardMedia component="img" image={pizza.image} alt={pizza.name} />
+          <CardMedia
+            component="img"
+            image={pizza.image}
+            alt={t("pizza." + pizza.id)}
+          />
         </Box>
         <Box id="titledesc">
-          <CardHeader title={pizza.name} />
+          <CardHeader title={t("pizza." + pizza.id)} />
           <CardContent>
-            <Typography variant="h3">{pizza.description}</Typography>
+            <Typography variant="h3">{t("description." + pizza.id)}</Typography>
           </CardContent>
         </Box>
         <Box id="chipnumber">

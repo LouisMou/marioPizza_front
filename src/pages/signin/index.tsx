@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   InputAdornment,
@@ -8,7 +7,6 @@ import {
 } from "@mui/material";
 import { useFormik } from "formik";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
 import * as yup from "yup";
 import AuthenticationService from "../../services/AuthenticationService";
 import { useState } from "react";
@@ -18,16 +16,17 @@ import User from "../../models/security/User";
 interface Props {
   setIsAuthenticated: Function;
   user?: User;
+  handleCloseSignin: Function;
 }
 
-const Signin = ({ user, setIsAuthenticated }: Props) => {
+const Signin = ({ user, setIsAuthenticated, handleCloseSignin }: Props) => {
   const { t } = useTranslation();
-  const [error, setError] = useState<string>("");
+  const [error] = useState<string>("");
 
   const schema = yup.object().shape({
     lastname: yup
       .string()
-      .required(t("error.required", { field: t("common.firstname") }))
+      .required(t("error.required", { field: t("common.lastname") }))
       .test(
         "2Len",
         t("error.minLen", { field: "2" }),
@@ -66,8 +65,8 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
       .string()
       .required(
         t("error.required", {
-          field: t("common.loginPhonenumber"),
-        }).toUpperCase()
+          field: t("common.loginPlaceholder"),
+        })
       )
       .test(
         "4Len",
@@ -106,7 +105,9 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
         await AuthenticationService.login(
           values.login,
           values.passwordConfirmation
-        );
+        ).then(() => {
+          handleCloseSignin();
+        });
         window.location.href = "/success";
       } catch (error) {
         console.error("Error:", error);
@@ -120,7 +121,7 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
         <Typography color="red">{error}</Typography>
         <form onSubmit={formik.handleSubmit}>
           <TextField
-            placeholder={t("common.lastnamePlaceholder")}
+            placeholder={t("common.lastname")}
             type="text"
             InputProps={{
               startAdornment: (
@@ -137,7 +138,7 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
             helperText={formik.touched.lastname && formik.errors.lastname}
           />
           <TextField
-            placeholder={t("common.firstnamePlaceholder")}
+            placeholder={t("common.firstname")}
             type="text"
             InputProps={{
               startAdornment: (
@@ -171,7 +172,7 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
             helperText={formik.touched.password && formik.errors.password}
           />
           <TextField
-            placeholder={t("common.passwordConfirmationPlaceholder")}
+            placeholder={t("common.passwordConfirmation")}
             type="passwordConfirmation"
             InputProps={{
               startAdornment: (
@@ -194,7 +195,7 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
             }
           />
           <TextField
-            placeholder={t("common.addressPlaceholder")}
+            placeholder={t("common.address")}
             type="address"
             InputProps={{
               startAdornment: (
@@ -227,7 +228,11 @@ const Signin = ({ user, setIsAuthenticated }: Props) => {
             error={formik.touched.login && Boolean(formik.errors.login)}
             helperText={formik.touched.login && formik.errors.login}
           />
-          <Button variant="contained" type="submit">
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={() => handleCloseSignin()}
+          >
             {t("common.create")}
           </Button>
         </form>
