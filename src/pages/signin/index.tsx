@@ -105,9 +105,7 @@ const Signin = ({ user, setIsAuthenticated, handleCloseSignin }: Props) => {
         await AuthenticationService.login(
           values.login,
           values.passwordConfirmation
-        ).then(() => {
-          handleCloseSignin();
-        });
+        );
         window.location.href = "/success";
       } catch (error) {
         console.error("Error:", error);
@@ -228,11 +226,7 @@ const Signin = ({ user, setIsAuthenticated, handleCloseSignin }: Props) => {
             error={formik.touched.login && Boolean(formik.errors.login)}
             helperText={formik.touched.login && formik.errors.login}
           />
-          <Button
-            variant="contained"
-            type="submit"
-            onClick={() => handleCloseSignin()}
-          >
+          <Button variant="contained" type="submit">
             {t("common.create")}
           </Button>
         </form>
