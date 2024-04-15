@@ -3,6 +3,10 @@ h1 {
   color: #fbc02c;
 }
 
+.title {
+  text-align: center !important;
+}
+
 header a {
   text-decoration: none;
 }

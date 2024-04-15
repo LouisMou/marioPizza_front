@@ -97,6 +97,7 @@ const Login = ({ setIsAuthenticated }: Props) => {
             helperText={formik.touched.login && formik.errors.login}
           />
           <TextField
+            className="textfield_login"
             placeholder={t("common.passwordPlaceholder")}
             type="password"
             InputProps={{
@@ -113,11 +114,16 @@ const Login = ({ setIsAuthenticated }: Props) => {
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.touched.password && formik.errors.password}
           />
-          <Button variant="contained" type="submit">
-            {t("common.connect")}
+          <Button
+            className="signup_button"
+            variant="contained"
+            type="button"
+            onClick={handleOpen}
+          >
+            {t("common.create")}
           </Button>
-          <Button variant="contained" type="button" onClick={handleOpen}>
-            create an account
+          <Button className="login_button" variant="contained" type="submit">
+            {t("common.connect")}
           </Button>
         </form>
       </Card>

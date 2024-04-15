@@ -115,8 +115,8 @@ const PizzaCard = ({ pizza }: Props) => {
         <Box>
           <CardMedia
             component="img"
-            image={pizza.image}
-            alt={t("pizza." + pizza.id)}
+            image={"/assets/images/" + pizza.picture}
+            alt={t("pizza." + pizza.picture)}
           />
         </Box>
         <Box id="titledesc">

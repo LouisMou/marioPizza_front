@@ -3,19 +3,19 @@ export default class Pizza {
   name: string;
   price: number;
   description: string;
-  image: string;
+  picture: string;
 
   constructor(
     id: number,
     name: string,
     price: number,
     description: string,
-    image: string
+    picture: string
   ) {
     this.id = id;
     this.name = name;
     this.price = price;
     this.description = description;
-    this.image = image;
+    this.picture = picture;
   }
 }

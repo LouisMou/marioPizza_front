@@ -1,3 +1,7 @@
+.css-1o9s3wi-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fbc02c !important;
+}
+
 .login {
   width: 25em;
   position: absolute;
@@ -14,6 +18,24 @@
   gap: 1em;
   max-width: 20em;
   margin: auto;
+}
+
+.signup_button {
+  background-color: transparent !important;
+  position: relative;
+  left: 70% !important;
+  max-width: fit-content;
+  box-shadow: none !important;
+  color: #fbc02c !important;
+}
+
+.login_button {
+  background-color: #fbc02c !important;
+  position: relative;
+  left: 70% !important;
+  color: #3b438b !important;
+
+  max-width: fit-content;
 }
 
 .css-3o67hy-MuiPaper-root-MuiCard-root {

@@ -25,6 +25,7 @@ const Header = ({ isAuthenticated, setIsAuthenticated }: Props) => {
           </Box>
         </NavLink>
         <Box
+          className="title"
           display="flex"
           justifyContent="center"
           alignItems="center"
