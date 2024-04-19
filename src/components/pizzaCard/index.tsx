@@ -132,6 +132,7 @@ const PizzaCard = ({ pizza }: Props) => {
             aria-label="Quantity Input"
             min={0}
             max={10}
+            defaultValue={0}
             slots={{
               root: StyledInputRoot,
               input: StyledInput,
