@@ -6,7 +6,7 @@ import {
   Chip,
   Typography,
 } from "@mui/material";
-import * as React from "react";
+import React, { useState } from "react";
 
 import Pizza from "../../models/pizza";
 import { Unstable_NumberInput as NumberInput } from "@mui/base/Unstable_NumberInput";
@@ -20,10 +20,26 @@ import { blue, grey } from "@mui/material/colors";
 
 interface Props {
   pizza: Pizza;
+  updateTotal: (price: number) => void;
+  resetTotal: () => void;
 }
 
-const PizzaCard = ({ pizza }: Props) => {
+const PizzaCard = ({ pizza, updateTotal, resetTotal }: Props) => {
   const { t } = useTranslation();
+  const [total, setTotal] = useState<number>(0);
+
+  const calculateTotal = (quantity: number | null) => {
+    console.log("Quantity:", quantity);
+    if (quantity != null) {
+      if (quantity != null) {
+        const total = pizza.price * quantity;
+        setTotal(total);
+        updateTotal(total);
+      }
+      setTotal(total);
+      updateTotal(total);
+    }
+  };
 
   const StyledInputRoot = styled("div")(
     ({ theme }) => `
@@ -148,6 +164,9 @@ const PizzaCard = ({ pizza }: Props) => {
                 children: <RemoveIcon fontSize="small" />,
               },
             }}
+            onChange={(event, newValue) =>
+              console.log(calculateTotal(newValue))
+            }
           />
         </Box>
       </Card>
